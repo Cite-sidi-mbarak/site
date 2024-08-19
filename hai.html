@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سكان حي سيدي مبارك</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="1x.png">
+    <!-- Google Fonts - Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #d4c7b4;
+        }
+
+        .navbar-brand img {
+            width: 190px;
+        }
+
+        .navbar-dark .navbar-toggler {
+            border: none;
+            color: white;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            text-align: right;
+        }
+
+        /* Fullscreen Menu Styles */
+        @media (min-width: 769px) {
+            .fullscreen-menu {
+                display: block !important;
+                position: static;
+                height: auto;
+                background-color: transparent;
+                color: inherit;
+                transform: none;
+                opacity: 1;
+                overflow: visible;
+                transition: none;
+            }
+
+            .fullscreen-menu-content ul {
+                display: flex;
+                gap: 20px;
+                justify-content: flex-end;
+            }
+
+            .fullscreen-menu-content ul li a {
+                font-size: 18px;
+                padding: 10px 20px;
+                color: #000;
+            }
+
+            .close-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-dark .navbar-toggler {
+                display: block;
+            }
+
+            .fullscreen-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 70%;
+                background-color: #d4c7b4;
+                z-index: 1000;
+                display: none;
+                overflow-y: auto;
+                color: black;
+                opacity: 0;
+                transform: translateY(-100%);
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+
+            .fullscreen-menu.open {
+                display: block;
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            .fullscreen-menu-content ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            .fullscreen-menu-content ul li {
+                margin: 20px 0;
+            }
+
+            .fullscreen-menu-content ul li a {
+                font-size: 24px;
+                color: #000;
+                text-decoration: none;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 36px;
+                cursor: pointer;
+                color: #000;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 55vh;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('ras.png');
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('156.png');
+            background-size: cover;
+            z-index: -1;
+        }
+
+        /* Footer Section */
+        footer {
+            color: #000;
+            padding: 60px 0;
+            text-align: center;
+            background-color: #d4c7b4;
+        }
+
+        /* Button Styles */
+        .btn-white {
+            background-color: #343a40;
+            color: white;
+            border: 1px solid black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-white:hover {
+            background-color: #fff;
+            color: black;
+        }
+
+        .fullscreen-menu-content ul li img {
+            width: 90px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <img src="1x.png" alt="MCA Logo">
+                </div>
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="fullscreen-menu" id="fullscreenMenu">
+                    <span class="close-btn">&times;</span>
+                    <div class="fullscreen-menu-content">
+                        <ul>
+                            <br>
+                            <li><a href="inde.html">الصفحة الرئيسية</a></li>
+                            <li><a href="news1.html">أخر الاخبار</a></li>
+                            <li><a href="first1.html">وفيات</a></li>
+                            <li><a href="reserve1.html">نداء</a></li>
+                            <li><a href="ads.html">اعلانات</a></li>
+                            <li><a href="sport.html">رياضات</a></li>
+                            <li><a href="hai.html">معلومات عن الحي</a></li>
+                            <li><a href="contact1.html">تواصل معنا</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="display-4"></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="news1.html">
+                        <img src="abna.png" class="img-fluid" alt="Image Description">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="info.html">
+                        <img src="info.png" class="img-fluid" alt="Image Description">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-- Footer Section -->
+    <footer class="text-center py-4">
+        <p>&copy; 2024. جميع الحقوق محفوظة </p>
+    </footer>
+    <!-- Bootstrap JS, Popper.js, and j, jQuery, and custom JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            document.getElementById('fullscreenMenu').classList.toggle('open');
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('fullscreenMenu').classList.remove('open');
+        });
+    </script>
+</body>
+
+</html>
