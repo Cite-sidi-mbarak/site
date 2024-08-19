@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سكان حي سيدي مبارك </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="1x.png">
+    <!-- Google Fonts - Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Styles */
+        
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+            /* Ensure body has relative position for absolute positioning */
+        }
+        
+        .arabic-date {
+            font-family: 'Times New Roman', Times, serif;
+            /* Specify different font for Arabic date */
+        }
+        /* Navbar Styles */
+        
+        .navbar {
+            background-color: #d4c7b4;
+        }
+        
+        .navbar-brand img {
+            width: 190px;
+            /* Adjust logo size for larger screens */
+        }
+        
+        .navbar-dark .navbar-toggler {
+            border: none;
+            color: white;
+        }
+        
+        .navbar-dark .navbar-toggler-icon {
+            color: white;
+            width: 24px;
+            height: 17px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            text-align: right;
+            /* Right-align text */
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        /* Fullscreen Menu Styles */
+        
+        @media (min-width: 769px) {
+            .fullscreen-menu {
+                display: block !important;
+                position: static;
+                height: auto;
+                background-color: transparent;
+                color: inherit;
+                transform: none;
+                opacity: 1;
+                overflow: visible;
+                transition: none;
+            }
+            .fullscreen-menu-content ul {
+                display: flex;
+                gap: 20px;
+                justify-content: flex-end;
+            }
+            .fullscreen-menu-content ul li a {
+                font-size: 18px;
+                padding: 10px 20px;
+                color: #000;
+            }
+            .close-btn {
+                display: none;
+            }
+        }
+        /* Simplifier les styles pour les petits écrans */
+        
+        @media (max-width: 768px) {
+            .navbar-dark .navbar-toggler {
+                display: block;
+            }
+            .navbar-nav {
+                display: none;
+            }
+            .fullscreen-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                /* تغطية كامل العرض */
+                height: 70%;
+                /* تغطية نصف الارتفاع */
+                background-color: #d4c7b4;
+                /* لون الخلفية مع شفافية */
+                z-index: 1000;
+                display: none;
+                overflow-y: auto;
+                color: black;
+                opacity: 0;
+                transform: translateY(-100%);
+                /* تبدأ خارج الشاشة من الأعلى */
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+            .fullscreen-menu.open {
+                display: block;
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .fullscreen-menu-content ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 10px;
+                text-align: center;
+            }
+            .fullscreen-menu-content ul li {
+                margin: 20px 0;
+            }
+            .fullscreen-menu-content ul li a {
+                font-size: 24px;
+                color: #000;
+                text-decoration: none;
+            }
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 36px;
+                cursor: pointer;
+                color: #000;
+            }
+        }
+        /* Responsive Design and Dark Mode */
+        
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                width: 40px;
+            }
+            /* Additional styles for mobile devices */
+        }
+        
+        body.dark-mode {
+            background-color: #343a40;
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar {
+            background-color: #212529;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        /* Hero Section */
+        
+        .hero {
+            height: 55vh;
+            /* Height of the hero section */
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('156.png');
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('156.png');
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        /* Blogs Section */
+        
+        .blogs-section {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 0, 0.5);
+            /* Example background color with transparency */
+            text-align: center;
+        }
+        
+        .blog {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: hsla(0, 0%, 0%, 0);
+            /* Example background color with transparency */
+        }
+        
+        .blog img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .blog h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+        /* Authors Section */
+        
+        .authors-section {
+            background-image: url('ff.jpg');
+            color: black;
+            padding: 50px 0;
+        }
+        
+        .author {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .author img {
+            width: auto;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .author p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        /* Media Query for Mobile Devices */
+        
+        @media (max-width: 768px) {
+            .authors-section {
+                background-image: url('ff.jpg');
+                color: #fff;
+                padding: 50px 0;
+            }
+            .author {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .author img {
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 4px solid #fff;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                width: 90px;
+                /* Fixed width for the images */
+                height: 90px;
+                /* Fixed height for the images */
+                margin-left: 15px;
+                /* Space between image and text */
+            }
+            .author h3 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            .author p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+        }
+        /* Dark Mode Styles */
+        
+        body.dark-mode {
+            background-color: #343a40;
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar {
+            background-color: #212529;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        /* Footer Section */
+        
+        footer {
+            color: #000;
+            padding: 60px 0;
+            text-align: center;
+            background-color: #d4c7b4;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        /* Button Styles */
+        
+        .btn-primary {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        
+        .btn-white {
+            background-color: #343a40;
+            /* White background */
+            color: white;
+            /* Black text color */
+            border: 1px solid black;
+            /* Black border */
+            padding: 10px 20px;
+            /* Padding for the button */
+            text-align: center;
+            /* Center the text */
+            text-decoration: none;
+            /* Remove underline from text */
+            display: inline-block;
+            /* Inline-block display */
+            font-size: 16px;
+            /* Font size */
+            cursor: pointer;
+            /* Add mouse pointer on hover */
+            border-radius: 5px;
+            /* Border radius */
+            transition: 0.3s;
+            /* Transition effect on hover */
+        }
+        
+        .btn-white:hover {
+            background-color: #fff;
+            /* White background on hover */
+            color: black;
+            /* Black text color on hover */
+        }
+        
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #343a40;
+            transition: color 0.3s;
+        }
+        
+        .fullscreen-menu-content ul li img {
+            width: 90px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            /* Aligne le logo à droite */
+        }
+        
+        .news-section p {
+            color: #000;
+            font-size: 2.0rem;
+            line-height: 1.6;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        /* Map Container Styles */
+        
+        .map-container {
+            width: 100%;
+            max-width: 400px;
+            /* تحديد العرض الأقصى للخريطة */
+            height: auto;
+            border: 3px solid #343a40;
+            /* إطار حول الخريطة */
+            border-radius: 10px;
+            /* زاوية دائرية للإطار */
+            overflow: hidden;
+            background-color: #f8f9fa;
+            /* لون الخلفية */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            /* إضافة تأثير الظل */
+            margin: 20px auto;
+            /* وسط الخريطة وتحديد الهامش */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <img src="1x.png" alt="MCA Logo">
+                </div>
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="fullscreen-menu" id="fullscreenMenu">
+                    <span class="close-btn">&times;</span>
+                    <!-- زر الإغلاق في سطر واحد مع فاصل -->
+                    <div class="fullscreen-menu-content">
+                        <ul>
+                            <br><br>
+                            <li><a href="inde.html">الصفحة الرئيسية</a></li><br>
+                            <li>
+                                <a href="news1.html">أخر الاخبار</a>
+                            </li>
+                            <li>
+                                <a href="first1.html">وفيات</a>
+                            </li>
+                            <li>
+                                <a href="reserve1.html">نداء</a>
+                            </li>
+                            <li>
+                                <a href="contact1.html">تواصل معنا</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header><br>
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="display-4">
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="news1.html">
+                        <img src="rrr.png" class="img-fluid" alt="Image Description">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="">
+                        <img src="nnn.png" class="img-fluid" alt="Image Description">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <a href=".html">
+                        <img src="zzz.png" class="img-fluid" alt="Image Description">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="live-scores-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3200.725492109537!2d3.166869!3d36.657053999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzbCsDM5JzI1LjQiTiAzwrAxMCcwMC43IkU!5e0!3m2!1sfr!2sdz!4v1724074324359!5m2!1sfr!2sdz"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="live-scores-section">
+        <div class="container">
+
+        </div>
+
+        <section class="social-icons">
+            <div class="container">
+                <a href="https://www.facebook.com/rayhane.center/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/rayhane.center/"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:rayhane.centre@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+
+        <!-- Footer Section -->
+        <footer class="text-center py-4">
+            <p>. جميع الحقوق محفوظة&copy; </p>
+        </footer>
+        <!-- Bootstrap JS, Popper.js, and j, jQuery, and custom JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            document.querySelector('.navbar-toggler').addEventListener('click', function() {
+                document.getElementById('fullscreenMenu').classList.toggle('open');
+            });
+
+            document.querySelector('.close-btn').addEventListener('click', function() {
+                document.getElementById('fullscreenMenu').classList.remove('open');
+            });
+        </script>
+</body>
+
+</html>
