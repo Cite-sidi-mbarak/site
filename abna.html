@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> الابطال سكان حي سيدي مبارك</title>
+    <title>الابطال سكان حي سيدي مبارك</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Custom CSS -->
@@ -16,7 +16,6 @@
     <!-- Inline Styles -->
     <style>
         /* Global styles */
-        
         body {
             font-family: 'Cairo', Arial, sans-serif;
             background-color: #f8f9fa;
@@ -25,27 +24,27 @@
             position: relative;
             /* Ensure body has relative position for absolute positioning */
         }
-        
+
         .navbar {
             background-color: #d4c7b4;
         }
-        
+
         .navbar-brand img {
             width: 90px;
             /* Adjust logo size for larger screens */
         }
-        
+
         .navbar-dark .navbar-toggler {
             border: none;
             color: white;
         }
-        
+
         .navbar-dark .navbar-toggler-icon {
             color: white;
             width: 24px;
             height: 17px;
         }
-        
+
         .navbar-dark .navbar-nav .nav-link {
             color: #000;
             padding: 10px 15px;
@@ -53,34 +52,17 @@
             text-align: right;
             /* Right-align text */
         }
-        
+
         .navbar-dark .navbar-nav .nav-link:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
-        .navbar-dark .navbar-nav .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
+
         @media (max-width: 768px) {
             .navbar-brand img {
                 width: 60px;
             }
         }
-        
-        .navbar-dark .navbar-nav .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .hero {
-            background-color: white;
-            background-size: cover;
-            background-position: center;
-            color: #000;
-            text-align: center;
-            padding: 80px 0;
-        }
-        
+
         @media (min-width: 769px) {
             .fullscreen-menu {
                 display: block !important;
@@ -93,29 +75,34 @@
                 overflow: visible;
                 transition: none;
             }
+
             .fullscreen-menu-content ul {
                 display: flex;
                 gap: 20px;
                 justify-content: flex-end;
             }
+
             .fullscreen-menu-content ul li a {
                 font-size: 18px;
                 padding: 10px 20px;
                 color: #000;
             }
+
             .close-btn {
                 display: none;
             }
         }
+
         /* Simplifier les styles pour les petits écrans */
-        
         @media (max-width: 768px) {
             .navbar-dark .navbar-toggler {
                 display: block;
             }
+
             .navbar-nav {
                 display: none;
             }
+
             .fullscreen-menu {
                 position: fixed;
                 top: 0;
@@ -135,25 +122,30 @@
                 /* تبدأ خارج الشاشة من الأعلى */
                 transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
             }
+
             .fullscreen-menu.open {
                 display: block;
                 transform: translateX(0);
                 opacity: 1;
             }
+
             .fullscreen-menu-content ul {
                 list-style: none;
                 padding: 0;
                 margin-top: 50px;
                 text-align: center;
             }
+
             .fullscreen-menu-content ul li {
                 margin: 20px 0;
             }
+
             .fullscreen-menu-content ul li a {
                 font-size: 24px;
                 color: #000;
                 text-decoration: none;
             }
+
             .close-btn {
                 position: absolute;
                 top: 20px;
@@ -163,17 +155,17 @@
                 color: #000;
             }
         }
-        
+
         .news-section {
             padding: 80px 0;
         }
-        
+
         .article {
             margin-bottom: 40px;
             text-align: right;
             /* Align text to right */
         }
-        
+
         .article img {
             max-width: 100%;
             height: auto;
@@ -181,73 +173,73 @@
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .article h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-align: right;
             /* Align heading to right */
         }
-        
+
         .article p {
             font-size: 1.1rem;
             line-height: 1.8;
             /* Text alignment to right is handled automatically with dir="rtl" */
         }
-        
+
         .article .meta {
             font-size: 1rem;
             color: #6c757d;
             text-align: right;
             margin-bottom: 10px;
         }
-        
+
         .article .meta .author {
             float: right;
         }
-        
+
         .article .btn-primary {
             float: right;
             /* Align button to the right */
         }
-        
+
         .explore-more {
             margin-top: 50px;
             text-align: center;
         }
-        
+
         .explore-more .facebook-post {
             max-width: 100%;
             height: auto;
             border: none;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .explore-more .read-more-link {
             display: block;
             margin-top: 20px;
         }
+
         /* Dark Mode Styles */
-        
         body.dark-mode {
             background-color: #212529;
             color: #fff;
             /* Green text */
         }
-        
+
         body.dark-mode .navbar {
             background-color: #fff;
         }
-        
+
         body.dark-mode .navbar-dark .navbar-nav .nav-link {
             color: #fff;
             /* Red text */
         }
-        
+
         body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         body.dark-mode .explore-more {
             background-color: #343a40;
             /* Dark grey background */
@@ -257,18 +249,18 @@
             /* Green text */
             padding: 20px;
         }
-        
+
         footer {
             background-color: #d4c7b4;
             color: #000;
             padding: 30px 0;
             text-align: center;
         }
-        
+
         footer p {
             margin-bottom: 0;
         }
-        
+
         .center-container {
             display: flex;
             justify-content: center;
@@ -378,15 +370,17 @@
         function displayArticles() {
             const articlesContainer = document.getElementById('articlesContainer');
             const articles = [{
-                title: ' إبراهيم حجاج',
-                content: 'الصورة للممثل الجزائري - ( إبراهيم - حجاج )<br> تاريخ و مكان الميلاد : 1934 ، المدية‎<br>   تاريخ و مكان الوفاة : 1996، الشراربة الكاليتوس<br>  " إبراهيم حجاج " هو الذي جسّد دور الشّهيد « علي لابوانت » في فيلم "معركة _ الجزائر" ؛ استطاع بكاريزما وصدق في الأداء، أن يلعب الدور الذي أُسند إليه على أفضل وجه، افتك إعجاب من شاهد الفيلم في الجزائر وفي خارج الجزائر. الممثل إبراهيم حجاج رحمه الله، مات منسيًّا ومهمّشا في بلده، عانى في الحياة قبل وفاته؛ رغم أن فيلم "معركة الجزائر" حقق إيرادات مالية ضخمة، في الجزائر وخارج الجزائر. لم يتذكره ولم ينصفه القائمون على الشأن الثقافي أو فكروا في تكريم هذا المواطن الجزائري البسيط، الذي كان أحد أسباب نجاح واحد من أعظم الأفلام في تاريخ السينما العالمية عبر جميع العصور<br>  المفاجئة الكبيرة أن الممثل ابراهيم حجاج مجاهد حقيقي شارك في الثورة التحريرية. وتوفي رحمه الله في بيت متواضع بحي "الشراربة _ الكاليتوس"<br>',
+                title: 'إبراهيم حجاج',
+                content: 'الصورة للممثل الجزائري - (إبراهيم - حجاج)<br> تاريخ و مكان الميلاد : 1934 ، المدية‎<br> تاريخ و مكان الوفاة : 1996، الشراربة الكاليتوس<br> "إبراهيم حجاج" هو الذي جسّد دور الشّهيد « علي لابوانت » في فيلم "معركة _ الجزائر" ؛ استطاع بكاريزما وصدق في الأداء، أن يلعب الدور الذي أُسند إليه على أفضل وجه، افتك إعجاب من شاهد الفيلم في الجزائر وفي خارج الجزائر. الممثل إبراهيم حجاج رحمه الله، مات منسيًّا ومهمّشا في بلده، عانى في الحياة قبل وفاته؛ رغم أن فيلم "معركة الجزائر" حقق إيرادات مالية ضخمة، في الجزائر وخارج الجزائر. لم يتذكره ولم ينصفه القائمون على الشأن الثقافي أو فكروا في تكريم هذا المواطن الجزائري البسيط، الذي كان أحد أسباب نجاح واحد من أعظم الأفلام في تاريخ السينما العالمية عبر جميع العصور<br> المفاجئة الكبيرة أن الممثل ابراهيم حجاج مجاهد حقيقي شارك في الثورة التحريرية. وتوفي رحمه الله في بيت متواضع بحي "الشراربة _ الكاليتوس"<br>',
                 imageUrl: 'abna1.png',
+                link: 'https://www.facebook.com/share/p/dhg7XMtnW9iMyPCb/', // Add the link here
                 date: '2023/11/19',
                 author: ''
             }, {
                 title: 'بطلة الحي',
                 content: 'بطلة الكاليتوس ومقاطعة براقي والشرقية التلميذة النجيبة إبنة خونا نبيل عزيباني ربي يبارك عليها<br> أسيل عزيباني وبمعدل 9،75 في مسابقة الإملاء التي شارك فيها زهاء 80 ألف تلميذ ترتقي الى المراتب الأولى في نهائي ضم 1200 متسابق .. مبروووووووك<br> تهانينا الحارة ونسأل الله أن يجازيها بمزيد من النجاحات',
                 imageUrl: 'abna1.png',
+                link: 'https://example.com/article2', // Add the link here
                 date: '2023/06/11',
                 author: ''
             }];
@@ -395,14 +389,15 @@
                 const articleHTML = `
                     <div class="col-lg-6">
                         <article class="article">
-                            <img src="${article.imageUrl}" alt="${article.title}">
+                            <a href="${article.link}" target="_blank">
+                                <img src="${article.imageUrl}" alt="${article.title}">
+                            </a>
                             <div class="meta">
                                 <span class="date">${article.date}</span> |
                                 <span class="author">${article.author}</span>
                             </div>
                             <h2>${article.title}</h2>
                             <p>${article.content}</p>
-                         
                         </article>
                     </div>
                 `;
