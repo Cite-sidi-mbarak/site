@@ -16,47 +16,59 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
-        
+
         .logo {
             max-width: 250px;
             max-height: 250px;
             opacity: 0;
-            /* Initially hidden */
             animation: fadeIn 2s ease-in-out forwards;
-            /* Animation with forwards to keep the final state */
         }
-        
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
             }
+
             100% {
                 opacity: 1;
             }
         }
-        .hero h1 {
-    font-size: 3.5rem; /* حجم النص */
-    font-weight: 700;  /* سمك الخط */
-    color: #ffffff;    /* لون النص */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
-    margin-bottom: 20px; /* الهامش السفلي */
-    line-height: 1.2;  /* ارتفاع السطر */
-}
 
+        h1 {
+            font-size: 2rem;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInText 2s ease-in-out forwards;
+            animation-delay: 2s;
+            color: #007bff;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container text-center">
         <img class="logo" src="1x.png" alt="Logo">
-    </div><br><br>
-    <script>
         <h1>مرحبا بكم</h1>
+    </div>
+
+    <script>
         setTimeout(function() {
             window.location.href = "inde.html"; // رابط الصفحة الرئيسية
-        }, 5000); // 3000 مللي ثانية = 5 ثوانٍ
+        }, 5000); // 5000 مللي ثانية = 5 ثوانٍ
     </script>
 </body>
 
 </html>
+
