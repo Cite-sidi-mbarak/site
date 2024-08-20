@@ -4,80 +4,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مركز الريحان للتكوين والتأهيل</title>
+    <title> أخبار سكان حي سيدي مبارك</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="rray.png">
+    <!-- Custom CSS -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="1x.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Inline Styles -->
     <style>
+        /* Global styles */
+        
         body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: url('21.jpg');
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #000;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+            /* Ensure body has relative position for absolute positioning */
+        }
+        
+        .navbar {
+            background-color: #d4c7b4;
+        }
+        
+        .navbar-brand img {
+            width: 90px;
+            /* Adjust logo size for larger screens */
+        }
+        
+        .navbar-dark .navbar-toggler {
+            border: none;
+            color: white;
+        }
+        
+        .navbar-dark .navbar-toggler-icon {
+            color: white;
+            width: 24px;
+            height: 17px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            text-align: right;
+            /* Right-align text */
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                width: 60px;
+            }
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            background-color: white;
             background-size: cover;
             background-position: center;
-            font-family: Arial, sans-serif;
-        }
-        
-        .container {
+            color: #000;
             text-align: center;
-            border: 2px solid #000;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            max-width: 80%;
+            padding: 80px 0;
         }
         
-        h2,
-        p {
+        @media (min-width: 769px) {
+            .fullscreen-menu {
+                display: block !important;
+                position: static;
+                height: auto;
+                background-color: transparent;
+                color: inherit;
+                transform: none;
+                opacity: 1;
+                overflow: visible;
+                transition: none;
+            }
+            .fullscreen-menu-content ul {
+                display: flex;
+                gap: 20px;
+                justify-content: flex-end;
+            }
+            .fullscreen-menu-content ul li a {
+                font-size: 18px;
+                padding: 10px 20px;
+                color: #000;
+            }
+            .close-btn {
+                display: none;
+            }
+        }
+        /* Simplifier les styles pour les petits écrans */
+        
+        @media (max-width: 768px) {
+            .navbar-dark .navbar-toggler {
+                display: block;
+            }
+            .navbar-nav {
+                display: none;
+            }
+            .fullscreen-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                /* تغطية كامل العرض */
+                height: 80%;
+                /* تغطية نصف الارتفاع */
+                background-color: #d4c7b4;
+                /* لون الخلفية مع شفافية */
+                z-index: 1000;
+                display: none;
+                overflow-y: auto;
+                color: black;
+                opacity: 0;
+                transform: translateY(-100%);
+                /* تبدأ خارج الشاشة من الأعلى */
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+            .fullscreen-menu.open {
+                display: block;
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .fullscreen-menu-content ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 50px;
+                text-align: center;
+            }
+            .fullscreen-menu-content ul li {
+                margin: 20px 0;
+            }
+            .fullscreen-menu-content ul li a {
+                font-size: 24px;
+                color: #000;
+                text-decoration: none;
+            }
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 36px;
+                cursor: pointer;
+                color: #000;
+            }
+        }
+        
+        h1,
+        p,
+        a,
+        h2 {
+            font-family: 'Cairo', Arial, sans-serif;
+        }
+        
+        .contact-section {
+            background-color: #f4f4f4;
+            padding: 50px 0;
+        }
+        
+        .contact-info {
+            background-color: #fff;
+            border: 2px solid #333;
+            border-image: repeating-linear-gradient(45deg, #000, #000 10px, transparent 10px, transparent 20px) 1;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
             color: #333;
         }
         
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
-            margin: 20px auto;
+        .contact-info p {
+            font-size: 18px;
+            color: #555;
         }
         
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        .contact-info a.tex-button {
+            display: inline-block;
+            background-color: #d4c7b4;
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        /* Media Query for Responsive Design */
         
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            .loader {
-                width: 30px;
-                height: 30px;
-                border-width: 10px;
-                margin: 10px auto;
-            }
+        .contact-info a.tex-button:hover {
+            background-color: #d4c7b4;
+        }
+        
+        .contact-info p strong {
+            font-size: 20px;
+            color: #333;
+        }
+        
+        footer {
+            background-color: #d4c7b4;
+            color: #000;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            /* Center text horizontally within .center-container */
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>الصفحة قيد التطوير</h2>
-        <div class="loader"></div>
-        <p>نعتذر عن الإزعاج، هذه الصفحة قيد التطوير حالياً.</p>
-        <p>يرجى المحاولة مرة أخرى لاحقاً.</p>
-        <!-- Back button with a link -->
-        <a class="btn btn-primary" href="inde.html">العودة</a>
-    </div>
+    <!-- Header with Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <img src="1x.png" alt="MCA Logo">
+                </div>
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="fullscreen-menu" id="fullscreenMenu">
+                    <span class="close-btn">&times;</span>
+                    <!-- زر الإغلاق في سطر واحد مع فاصل -->
+                    <div class="fullscreen-menu-content">
+                        <ul>
+                            <br>
+                            <li><a href="inde.html">الصفحة الرئيسية</a></li>
+                            <li>
+                                <a href="news1.html">أخر الاخبار</a>
+                            </li>
+                            <li>
+                                <a href="first1.html">وفيات</a>
+                            </li>
+                            <li>
+                                <a href="reserve1.html">نداء</a>
+                            </li>
+                            <li>
+                                <a href="ads.html">اعلانات</a>
+                            </li>
+                            <li>
+                                <a href="sport.html">رياضات</a>
+                            </li>
+                            <li>
+                                <a href="hai.html">معلومات عن الحي</a>
+                            </li>
+                            <li>
+                                <a href="contact1.html">تواصل معنا</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br><br>
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="contact-info">
+                        <h2>اتصل بنا</h2>
+                        <p><strong>العنوان:حي سيدي مبارك, كاليسوس, الجزائر</strong></p>
+                        <!-- Adjusted link wrapped around the paragraph -->
+                        <a href="https://forms.gle/LHcgjyeeTvVYNvyU9" class="tex-button">
+                            <p><strong>تقديم شكوى</strong></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br><br>
+
+    <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="ras.png" class="img-fluid" alt="Image Description">
+                </div>
+            </div>
+        </div>
+    </section><br><br>
+    <footer class="text-center py-4">
+        <p>&copy; 2024 . جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Toggle fullscreen menu
+        $(document).ready(function() {
+            $('.navbar-toggler').click(function() {
+                $('#fullscreenMenu').toggleClass('open');
+            });
+
+            // Close the fullscreen menu when clicking outside of it
+            $(document).mouseup(function(e) {
+                var container = $("#fullscreenMenu");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.removeClass('open');
+                }
+            });
+
+            // Close the fullscreen menu when close button is clicked
+            $('.close-btn').click(function() {
+                $('#fullscreenMenu').removeClass('open');
+            });
+
+            // Toggle dark mode and light mode
+            const body = document.body;
+            const navbarBrand = document.querySelector('.navbar-brand');
+
+            navbarBrand.addEventListener('click', function() {
+                // Toggle between light-mode and dark-mode classes
+                if (body.classList.contains('light-mode')) {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                } else {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
